@@ -3,14 +3,25 @@
 int [,] getArray()
 {
     Random rnd = new Random();
-    int [,] array = new int [rnd.Next(3,7),rnd.Next(3,7)];
-    for (int i = 0; i < array.GetLength(0); i++)
+    int [,] arr = new int [rnd.Next(3,7),rnd.Next(3,7)];
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            array[i,j] = rnd.Next(1,11);
+            arr[i,j] = rnd.Next(1,11);
         }
     }
-    return array;
+    return arr;
 }
 
+void printArray(int [,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Write(arr[i,j]);
+        }
+        WriteLine("");
+    }
+}
