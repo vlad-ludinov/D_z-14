@@ -1,5 +1,12 @@
 ﻿using static System.Console;
 
+WriteLine("Задан массив:");
+int [,] array = getArray();
+printArray(array);
+WriteLine("После сортировки получается такой массив:");
+sortArray(array);
+printArray(array);
+
 int[,] getArray()
 {
     Random rnd = new Random();
@@ -20,13 +27,13 @@ void printArray(int[,] arr)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            Write(arr[i, j]);
+            Write($"{arr[i, j],4}");
         }
         WriteLine("");
     }
 }
 
-void cortArray(int[,] arr)
+void sortArray(int[,] arr)
 {
     int temp = 0;
     for (int i = 0; i < arr.GetLength(0); i++)
