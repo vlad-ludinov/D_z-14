@@ -1,5 +1,12 @@
 ﻿using static System.Console;
 
+WriteLine("Задан массив:");
+
+int [,] array = getArray();
+printArray(array);
+int [] minSumIndex = findMinSumIndexArray(array);
+printMinSumIndex(array, minSumIndex);
+
 int[,] getArray()
 {
     Random rnd = new Random();
@@ -51,15 +58,33 @@ int [] findMinSumIndexArray(int [,] arr)
             count = 0;
         }
     }
-    int [] minSumIndex = new int [count];
+    int [] minSumInd = new int [count+1];
     int temp = 0;
     for (int i = 0; i < sum.Length; i++)
     {
         if (sum[i] == minSum)
         {
-            minSumIndex[temp] = i;
+            minSumInd[temp] = i;
             temp+=1;
         }
     }
-    return minSumIndex;
+    return minSumInd;
 }
+
+void printMinSumIndex(int [,] array, int [] minSumInd)
+{
+    if (minSumInd.Length == 1)
+    {
+        WriteLine($"Строка с минимальной суммой элементов: {minSumInd[0]+1}");
+    }
+    else
+    {
+        Write("Строки с минимальной суммой элементов: ");
+        for (int i = 0; i < minSumInd.Length-2; i++)
+        {
+            Write($"{minSumInd[i]+1}, ");
+        }
+        WriteLine($"{minSumInd[minSumInd.Length-2]+1} и {minSumInd[minSumInd.Length-1]+1}");
+    }
+}
+    
