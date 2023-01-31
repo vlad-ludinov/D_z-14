@@ -60,6 +60,45 @@ int [,] multiplyMatrix(int [,] matrixA, int [,] matrixB)
                 }
             }
         }
+        else
+        {
+            int [,] matrixC = new int [1,1];
+        }
     }
     return matrixC;
+}
+
+void printMultiplyMatrix(int [,] matrixA, int [,] matrixB, int [,] matrixC)
+{
+    if (matrixA.GetLength(1) == matrixB.GetLength(0))
+    {
+        WriteLine("При умножении первой матрицы на вторую получается матрица:");
+        for (int i = 0; i < matrixC.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrixC.GetLength(1); j++)
+            {
+                Write($"{matrixC[i,j],4}");
+            }
+            WriteLine("");
+        }
+    }
+    else
+    {
+        if (matrixB.GetLength(1) == matrixA.GetLength(0))
+        {
+            WriteLine("При умножении второй матрицы на первую получается матрица:");
+            for (int i = 0; i < matrixC.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrixC.GetLength(1); j++)
+                {
+                    Write($"{matrixC[i,j],4}");
+                }
+                WriteLine("");
+            }
+        }
+        else
+        {
+            WriteLine("Эти матрицы нельзя умножить друг на друга");
+        }
+    }
 }
