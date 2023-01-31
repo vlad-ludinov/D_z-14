@@ -1,5 +1,15 @@
 ﻿using static System.Console;
 
+WriteLine("Заданны две матрицы:");
+int [,] matrix1 = getMatrix();
+int [,] matrix2 = getMatrix();
+WriteLine("Первая:");
+printMatrix(matrix1);
+WriteLine("И вторая:");
+printMatrix(matrix2);
+int [,] multiMatrix = multiplyMatrix(matrix1, matrix2);
+printMultiplyMatrix(matrix1, matrix2, multiMatrix);
+
 int [,] getMatrix()
 {
     Random rnd = new Random();
@@ -42,6 +52,7 @@ int [,] multiplyMatrix(int [,] matrixA, int [,] matrixB)
                 }
             }
         }
+        return matrixC;
     }
     else
     {
@@ -59,13 +70,14 @@ int [,] multiplyMatrix(int [,] matrixA, int [,] matrixB)
                     }
                 }
             }
+            return matrixC;
         }
         else
         {
             int [,] matrixC = new int [1,1];
+            return matrixC;
         }
     }
-    return matrixC;
 }
 
 void printMultiplyMatrix(int [,] matrixA, int [,] matrixB, int [,] matrixC)
